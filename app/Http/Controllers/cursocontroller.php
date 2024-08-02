@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class cursocontroller extends Controller
+class CursoController extends Controller
 {
-    public function index(){
-        return "Bienvenido a la pagina cursos";
-    }     
-    public function create(){
-        return "en esta pagina podras crear un curso";
+    public function index()
+    {
+        return view('cursos.index');
     }
 
-    public function show($curso){
-        return "Bienvenido al curso $curso";
+    public function create()
+    {
+        return view('cursos.create');
     }
-    
+    public function show($curso)
+    {
+
+        return view('cursos.show', compact('curso'));
+    }
 }

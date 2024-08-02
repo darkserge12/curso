@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\CursoController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\homecontroller;
-use App\Http\Controllers\cursocontroller;
+use App\Http\Controllers\Homecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,11 @@ use App\Http\Controllers\cursocontroller;
 |
 */
 
-Route::get('/', homecontroller::class);
+Route::get('/', Homecontroller::class);
 
-Route::controller(cursocontroller::class)->group(function () {
+Route::controller(CursoController::class)->group(function () {
+
     Route::get('cursos', 'index');
-    Route::get('cursos/create','create');
-    Route::get('cursos/{curso}','show');
+    Route::get('cursos/create', 'create');
+    Route::get('cursos/{curso}',  'show');
 });
